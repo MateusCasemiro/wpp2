@@ -7,7 +7,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import urllib.parse
 import time
-import pyautogui as tempoEspera
 from openpyxl import load_workbook
 
 app = Flask(__name__)
@@ -55,18 +54,18 @@ def send_messages():
         navegadorChrome.get(link)
 
         WebDriverWait(navegadorChrome, 60).until(EC.presence_of_element_located((By.ID, 'side')))
-        tempoEspera.sleep(2)
+        time.sleep(2)
 
         alerta_presente = len(navegadorChrome.find_elements(By.XPATH, '//*[@id="app"]/div/span[2]/div/span/div/div/div/div/div/div[1]')) > 0
-        tempoEspera.sleep(2)
+        time.sleep(2)
 
         if not alerta_presente:
-            tempoEspera.press('enter')
+            time.press('enter')
             sheet_selecionada['C%s' % linha].value = 'Ok'
-            tempoEspera.sleep(2)
+            time.sleep(2)
         else:
             sheet_selecionada['C%s' % linha].value = 'Número inválido'
-            tempoEspera.sleep(2)
+            time.sleep(2)
 
     planilhaDadosContato.save(filepath)
     navegadorChrome.quit()

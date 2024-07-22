@@ -72,4 +72,5 @@ def send_messages():
     return 'Messages sent and planilha updated!'
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Somente para desenvolvimento, não use em produção
+    app.run(host='0.0.0.0', port=8080)

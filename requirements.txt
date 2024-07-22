@@ -1,4 +1,6 @@
 Flask==2.2.2
+Werkzeug==2.2.3
 selenium==4.8.3
 openpyxl==3.0.9
 pyautogui==0.9.52
+
